@@ -242,7 +242,7 @@ ModelManifest.xml
 .fake/
 
 # Ignore screenshots
-#/screenshots
+/screenshots
 
 # Ignore icons
 /LegacyUploader/appicon.ico

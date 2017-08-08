@@ -7,7 +7,7 @@ A tool used to upload game files for the [Legacy Manager](https://github.com/Cir
 
 ## Installation
 
-This software itself requires no installation and you can [click here](https://github.com/CiriousJoker/LegacyManager/releases/latest) to get the latest release here on Github.
+This software itself requires no installation and you can [click here](https://github.com/CiriousJoker/LegacyUploader/releases/latest) to get the latest release here on Github.
 
 ## Usage
 
