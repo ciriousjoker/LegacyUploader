@@ -1,0 +1,84 @@
+﻿<Window x:Class="LegacyManagerUploader.MaterialDialog"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:LegacyManagerUploader"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="Transparent"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Legacy Manager Uploader"
+        SizeToContent="WidthAndHeight">
+    <Window.Triggers>
+        <!-- TODO: Add FadeIn animation for DoShow -->
+        <EventTrigger RoutedEvent="local:MaterialDialog.DoClose">
+            <BeginStoryboard>
+                <Storyboard Completed="CloseAnimation_Completed" >
+                    <DoubleAnimation Name="Animation_Close_Move" Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" From="1" To="0" RenderOptions.CachingHint="Cache" RenderOptions.EdgeMode="Aliased" RenderOptions.ClearTypeHint="Enabled">
+                        <DoubleAnimation.EasingFunction>
+                            <PowerEase EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Window.Resources>
+        <DropShadowEffect x:Key="z-depth1" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#212121"/>
+        <DropShadowEffect x:Key="z-depth2" BlurRadius="8" ShadowDepth="2.5" Direction="270" Color="#212121"/>
+        <DropShadowEffect x:Key="z-depth3" BlurRadius="14" ShadowDepth="4.5" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth4" BlurRadius="25" ShadowDepth="8" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="13" Direction="270" Color="#BBBBBB"/>
+        <!-- These are the shadows for white background
+        <DropShadowEffect x:Key="z-depth1" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#CCCCCC"/>
+        <DropShadowEffect x:Key="z-depth2" BlurRadius="8" ShadowDepth="2.5" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth3" BlurRadius="14" ShadowDepth="4.5" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth4" BlurRadius="25" ShadowDepth="8" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="13" Direction="270" Color="#BBBBBB"/>
+        -->
+    </Window.Resources>
+    <Grid Margin="8" ClipToBounds="False">
+        <Border Effect="{StaticResource z-depth2}" Background="{DynamicResource MaterialDesignPaper}" BorderThickness="0" ClipToBounds="False" Grid.ColumnSpan="3" Grid.RowSpan="4" CornerRadius="2" MouseLeftButtonDown="SettingsWindow_DragMove">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="48"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="tv_title" Content="" Margin="16, 8, 16, 8" Padding="2" FontSize="20" VerticalContentAlignment="Center" />
+
+                <StackPanel Margin="16, 8, 16, 8" Grid.Row="1" Orientation="Vertical">
+                    <TextBlock x:Name="tv_content" Text="" TextWrapping="Wrap" FontSize="14" />
+                    <TextBox x:Name="tb_inputtext" Text="" FontSize="14"/>
+                </StackPanel>
+
+                <Grid Grid.Row="2" Margin="16,8,16,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btn_neutral" Content="CANCEL" BorderThickness="0" Margin="0,0,8,0" Height="Auto" Width="Auto" MinWidth="64" Background="Transparent" Padding="8" Click="btn_OnClick" FontSize="14" VerticalContentAlignment="Center" />
+                    <Button x:Name="btn_negative" Content="NO"  BorderThickness="0" Margin="0,0,8,0" Height="Auto" Width="Auto" MinWidth="64" Background="Transparent" Padding="8" Click="btn_OnClick" FontSize="14" VerticalContentAlignment="Center" Grid.Column="2" />
+                    <Button x:Name="btn_positive" Content="OK" BorderThickness="0" Height="Auto" Width="Auto" MinWidth="64" Background="Transparent" Padding="8" Click="btn_OnClick" FontSize="14" VerticalContentAlignment="Center" Grid.Column="3" />
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+
+
+
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
