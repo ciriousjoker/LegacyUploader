@@ -244,5 +244,8 @@ ModelManifest.xml
 # Ignore screenshots
 /screenshots
 
+# Ignore releases
+/releases
+
 # Ignore icons
 /LegacyUploader/appicon.ico
